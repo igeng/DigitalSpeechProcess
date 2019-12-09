@@ -1,9 +1,9 @@
-# Spoken Number Recognition
+# Audio Recognition based on mfcc
 
 ## File Architecture and Description
-`./spoken_numbers_wav/*`   Mel Spectrogram images of dataset
+`./audio_test_0db/*`   test aduio mixed noise.
 
-`./tmp/tmp/*`   temp folder for the program
+`./gfcc_images_ts_0db/*`   Mel images extracted from audio.
 
 `./cnn_model.py`   build and train cnn model
 
