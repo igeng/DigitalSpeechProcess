@@ -1,13 +1,13 @@
-# Spoken Number Recognition
+# Audio Recognition based on gfcc
 
 ## File Architecture and Description
-`./spoken_numbers_wav/*`   Mel Spectrogram images of dataset
+`./audio_test_0db/*`   test aduio mixed noise.
 
-`./tmp/tmp/*`   temp folder for the program
+`./gfcc_images_ts_0db/*`   Gammatone images extracted from audio.
 
 `./cnn_model.py`   build and train cnn model
 
-`./extract_features_img.py`   plot Mel Spectrogram image of each audio files in dataset
+`./extract_features_img.py`   plot Gam Spectrogram image of each audio files in dataset
 
 `./generate_tr.py`   a tool to record your own speech as a part of dataset
  
