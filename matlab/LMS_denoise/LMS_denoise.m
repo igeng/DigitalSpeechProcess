@@ -1,28 +1,27 @@
-%ÊµÑéÒªÇó¶ş£ºLMS½µÔë
 close all;clear all; clc; 
 
-[s, fs] = audioread('C5_1_y.wav');           % ¶ÁÈëÊı¾İÎÄ¼ş
-s=s-mean(s);                                % Ïû³ıÖ±Á÷·ÖÁ¿
-s=s/max(abs(s));                        % ·ùÖµ¹éÒ»
-N=length(s);                                % ÓïÒô³¤¶È
-time=(0:N-1)/fs;                        % ÉèÖÃÊ±¼ä¿Ì¶È
-SNR=5;                                      % ÉèÖÃĞÅÔë±È
+[s, fs] = audioread('C5_1_y.wav');           % è¯»å…¥æ•°æ®æ–‡ä»¶
+s=s-mean(s);                                % æ¶ˆé™¤ç›´æµåˆ†é‡
+s=s/max(abs(s));                        % å¹…å€¼å½’ä¸€
+N=length(s);                                % è¯­éŸ³é•¿åº¦
+time=(0:N-1)/fs;                        % è®¾ç½®æ—¶é—´åˆ»åº¦
+SNR=5;                                      % è®¾ç½®ä¿¡å™ªæ¯”
 r1=awgn(s,SNR,'measured','db');
-M=64;                                       % ÉèÖÃ£ÍºÍmu
+M=64;                                       % è®¾ç½®ï¼­å’Œmu
 mu=0.001;  
 itr=length(r1);
-snr1=SNR_Calc(s,r1);                    % ¼ÆËã³õÊ¼ĞÅÔë±È
+snr1=SNR_Calc(s,r1);                    % è®¡ç®—åˆå§‹ä¿¡å™ªæ¯”
 [y,W,e]=LMS(r1,s,M,mu,itr);
-output=e/max(abs(e));                 	% LMSÂË²¨Êä³ö
-snr2=SNR_Calc(s,output);            % ¼ÆËãÂË²¨ºóµÄĞÅÔë±È
+output=e/max(abs(e));                 	% LMSæ»¤æ³¢è¾“å‡º
+snr2=SNR_Calc(s,output);            % è®¡ç®—æ»¤æ³¢åçš„ä¿¡å™ªæ¯”
 snr=snr2-snr1;
 SN1=snr1; SN2=snr2; SN3=snr;
 fprintf('snr1=%5.4f   snr2=%5.4f    snr=%5.4f\n',snr1,snr2,snr);
-% ×÷Í¼
-subplot 311; plot(time,s,'k'); ylabel('·ùÖµ') 
-ylim([-1 1 ]); title('Ô­Ê¼ÓïÒôĞÅºÅ');
-subplot 312; plot(time,r1,'k'); ylabel('·ùÖµ') 
-ylim([-1 1 ]); title('´øÔëÓïÒôĞÅºÅ');
+% ä½œå›¾
+subplot 311; plot(time,s,'k'); ylabel('å¹…å€¼') 
+ylim([-1 1 ]); title('åŸå§‹è¯­éŸ³ä¿¡å·');
+subplot 312; plot(time,r1,'k'); ylabel('å¹…å€¼') 
+ylim([-1 1 ]); title('å¸¦å™ªè¯­éŸ³ä¿¡å·');
 subplot 313; plot(time,output,'k'); 
-ylim([-1 1 ]); title('LMSÂË²¨Êä³öÓïÒôĞÅºÅ');
-xlabel('Ê±¼ä/s'); ylabel('·ùÖµ')
+ylim([-1 1 ]); title('LMSæ»¤æ³¢è¾“å‡ºè¯­éŸ³ä¿¡å·');
+xlabel('æ—¶é—´/s'); ylabel('å¹…å€¼')
