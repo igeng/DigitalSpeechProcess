@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow.python.ops import ctc_ops
 from collections import Counter
 ## 自定义
-yuyinutils = __import__("9-24  yuyinutils")
+yuyinutils = __import__("yuyinutils")
 sparse_tuple_to_texts_ch = yuyinutils.sparse_tuple_to_texts_ch
 ndarray_to_text_ch = yuyinutils.ndarray_to_text_ch
 get_audio_and_transcriptch = yuyinutils.get_audio_and_transcriptch
