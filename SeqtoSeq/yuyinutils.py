@@ -259,17 +259,3 @@ def pad_sequences(sequences, maxlen=None, dtype=np.float32,
         else:
             raise ValueError('Padding type "%s" not understood' % padding)
     return x, lengths
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
